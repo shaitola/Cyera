@@ -24,8 +24,8 @@ test.describe('mokc API tests', () => {
     });
 
 
-  test('should fetch products', async ({ request }) => {  // Inject request here
-    const response = await request.get(`${API_URL}/products`); // Use injected request
+  test('should fetch products', async ({ request }) => {  
+    const response = await request.get(`${API_URL}/products`); 
     expect(response.status()).toBe(200);
     products = await response.json(); // Store fetched products
     expect(products.length).toBeGreaterThan(0);
@@ -34,7 +34,7 @@ test.describe('mokc API tests', () => {
     expect(products[0]).toHaveProperty('price');
   });
 
-  test('should add product to cart', async ({ request }) => { // Inject request here
+  test('should add product to cart', async ({ request }) => { 
     expect(products).toBeDefined(); // Make sure products were fetched
     const productToAdd = products[0]; // Add the first product (you can choose any)
     const quantityToAdd = 2;
@@ -51,12 +51,12 @@ test.describe('mokc API tests', () => {
 
         const addedProduct = cartItems[0];
         expect(addedProduct.id).toBe(productToAdd.id);
-        expect(addedProduct.name).toBe(productToAdd.name); // Verify other properties
+        expect(addedProduct.name).toBe(productToAdd.name); 
         expect(addedProduct.price).toBe(productToAdd.price);
         expect(addedProduct.quantity).toBe(quantityToAdd); 
   });
 
-  test('should retrieve cart items', async ({ request }) => { // Inject request here
+  test('should retrieve cart items', async ({ request }) => { 
         // Add a product to the cart first (using fetched products)
         expect(products).toBeDefined();
         const productToAdd = products[1]; // Add a different product
@@ -70,7 +70,7 @@ test.describe('mokc API tests', () => {
         expect(cartItems.length).toBe(2); // Expecting 2 item in cart
         expect(cartItems[1].id).toBe(productToAdd.id);
         expect(cartItems[1].quantity).toBe(quantityToAdd);
-        expect(cartItems[1].name).toBe(productToAdd.name); // Check other properties
+        expect(cartItems[1].name).toBe(productToAdd.name); 
         expect(cartItems[1].price).toBe(productToAdd.price);
   });
 });

@@ -43,12 +43,26 @@ export async function fetchProductDetails(apiRequest: APIRequestContext, product
     };
 }
 
-export async function addToCart(apiRequest: APIRequestContext, productId: number) {
-    const response = await apiRequest.post(`${BASE_API_URL}/addtocart`, {
-        data: { id: productId }
-    });
+export async function addToCart(apiRequest: APIRequestContext, productId?: number, options?: Partial<{ cookie: string; id: string; flag: boolean }>) {
+    const cookie = options?.cookie || `user=${Math.floor(Math.random() * 1000000)}`;
+    const id = options?.id || Math.floor(Math.random() * 1e20).toString().padStart(20, '0');
+    const flag = options?.flag ?? false;
+
+    const payload: any = {
+        cookie,
+        id,
+        flag
+    };
+
+    // Only include prod_id if productId is provided
+    if (productId !== undefined) {
+        payload.prod_id = productId;
+    }
+
+    const response = await apiRequest.post(`${BASE_API_URL}/addtocart`, { data: payload });
     return response;
 }
+
 export async function fetchAndWriteProducts(apiRequest: APIRequestContext, categories: string[]) {
     const products = await fetchProducts(apiRequest, categories);
 
