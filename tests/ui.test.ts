@@ -9,6 +9,12 @@ let categories: string[] = [];
 test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page);
     await homePage.navigate();
+
+        // Set up dialog event listener
+        page.on('dialog', async dialog => {
+            expect(dialog.message()).toBe('Product added');
+            await dialog.accept();
+        });
 });
 
 test('Verify all products from API are displayed in UI', async ({ request }) => {
@@ -70,12 +76,6 @@ test('Verify Add to Cart functionality', async ({ page }) => {
 
         // Click 'Add to Cart' button
         await productDetails.addToCart();
-
-        // Validate confirmation popup
-        page.on('dialog', async dialog => {
-            expect(dialog.message()).toBe('Product added');
-            await dialog.accept();
-        });
 
         // Navigate back to the home page to continue with the next product
         await homePage.navigate();
