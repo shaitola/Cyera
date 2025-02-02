@@ -5,7 +5,9 @@ This repository contains an automated testing suite for an e-commerce website.
 ## Project Structure
 
 * `tests/ui`: Contains UI tests using Playwright.
-* `tests/backend`: Contains backend tests for a mock API.
+* `tests/mock_api`: Contains backend tests for a mock API.
+* `tests/api`: Contains backend tests for a API.
+* `tests/performance`: Contains performance tests using Playwright.
 * `pages`: Contains page objects for the UI tests.
 
 ## Getting Started
@@ -13,10 +15,11 @@ This repository contains an automated testing suite for an e-commerce website.
 1. Clone the repository: `git clone https://github.com/shaitola/Cyera.git`
 2. Install dependencies: `npm install`
 3. Start the mock API server: `npm run mock-api-start-server`
-4. Run the mock tests: `npm run mock-api-test`
-4. Run the UI tests: `npm run ui-test`
-5. Run the backend tests: `npm run api-test`
-6. Run the performance tests: `npm run preformance-test`
+## Run Tests
+1. Run the mock tests: `npm run mock-api-test`
+2. Run the UI tests: `npm run ui-test`
+3. Run the backend tests: `npm run api-test`
+4. Run the performance tests: `npm run preformance-test`
 
 ## Test Scenarios
 
