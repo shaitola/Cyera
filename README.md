@@ -28,8 +28,8 @@ This repository contains an automated testing suite for an e-commerce website.
 * **Product Catalog:** Verifies that all products are displayed with correct details (name, price, and image).
 * **Navigation to Product Details:** Checks that clicking a product navigates to the correct details page and validates the product information.
 * **Add to Cart:** Tests the 'Add to Cart' button functionality and the confirmation popup.
-* **empty page for invalid product ID:**Checks that when navigates to invalid product ID page
-* **content for non-existing product ID:**Checks that when navigates to non-existing product ID page
+* **empty page for invalid product ID:** Checks that when navigates to invalid product ID page
+* **content for non-existing product ID:** Checks that when navigates to non-existing product ID page
 * **Performance Test:** This test measures the time it takes to load the home page and display all products.
 
 ### Backend Tests (Mock API)
