@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "mock-api-start-server": "json-server --watch api/mock/db.json --port 3001"
+    "mock-api-start-server": "json-server --watch api/mock/db.json --port 3001",
+    "mock-api-test": "npx playwright test tests/mock_api.test.ts",
+    "api-test": "npx playwright test tests/api.test.ts",
+    "ui-test": "npx playwright test tests/ui.test.ts",
+    "preformance-test": "npx playwright test tests/performance.test.ts"
   },
   "keywords": [],
   "author": "shay",
